@@ -1,12 +1,12 @@
 const asyncWrapper = require("../../utils/asyncWrapper");
 
 const logout = asyncWrapper(async (req, res, next) => {
-  // const isProd = process.env.NODE_ENV === "production";
+  const isProd = process.env.NODE_ENV === "production";
 
   res.clearCookie("token", {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    secure: isProd,
+    sameSite: isProd ? "none" : "lax",
   });
 
   return res.status(201).json({
