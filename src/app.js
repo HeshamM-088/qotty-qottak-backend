@@ -47,6 +47,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    message: "Welcome To Qotty Qotetak API",
+    status_code: 200,
+  });
+});
+
 app.use("/api/v1/auth", auth_router);
 
 app.use(errorHandler);
