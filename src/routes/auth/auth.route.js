@@ -19,10 +19,7 @@ router.get("/me", me_cookies);
 
 router.get(
   "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/login",
-    session: false,
-  }),
+  passport.authenticate("google", { session: false }),
   auth
 );
 

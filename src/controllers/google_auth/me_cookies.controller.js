@@ -4,6 +4,7 @@ const User = require("../../modules/user.module");
 
 const me_cookies = asyncWrapper(async (req, res, next) => {
   const token = req.cookies.token;
+
   if (!token) {
     return res.status(401).json({
       status_code: 401,
