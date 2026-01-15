@@ -17,6 +17,10 @@ router.post("/logout", logout);
 
 router.get("/me", me_cookies);
 
-router.get("/google/callback", passport.authenticate("google"), auth);
+router.get(
+  "/google/callback",
+  passport.authenticate("google", { session: false }),
+  auth
+);
 
 module.exports = router;
