@@ -1,4 +1,5 @@
 const asyncWrapper = require("../../utils/asyncWrapper");
+const jwt = require("jsonwebtoken");
 
 const session = asyncWrapper(async (req, res, next) => {
   const token = req.cookies.token;
