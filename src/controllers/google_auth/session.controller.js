@@ -4,8 +4,6 @@ const jwt = require("jsonwebtoken");
 const session = asyncWrapper(async (req, res, next) => {
   const token = req.cookies.token;
 
-  console.log(token);
-
   if (!token) {
     return res.status(401).json({
       status_code: 401,

@@ -11,7 +11,8 @@ router.get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     prompt: "select_account",
-  })
+  }),
+  auth
 );
 
 router.post("/logout", logout);
