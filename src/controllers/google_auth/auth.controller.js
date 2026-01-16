@@ -29,7 +29,6 @@ const auth = asyncWrapper(async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: process.env.COOKIE_DOMAIN,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     })
     .redirect(`${process.env.CLIENT_URL}/auth/google/success`);
