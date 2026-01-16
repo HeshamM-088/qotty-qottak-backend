@@ -1,13 +1,11 @@
 const asyncWrapper = require("../../utils/asyncWrapper");
 
 const logout = asyncWrapper(async (req, res, next) => {
-  const isProd = process.env.NODE_ENV === "production";
-
   res.clearCookie("token", {
     httpOnly: true,
-    secure: isProd,
-    domain: ".vercel.app",
-    sameSite: isProd ? "none" : "lax",
+    secure: process.env.NODE_ENV === "production",
+    domain: process.env.NODE_ENV === "production" ? ".vercel.app" : "localhost",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
   });
 
   return res.status(201).json({
