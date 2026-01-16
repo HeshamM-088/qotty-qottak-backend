@@ -4,7 +4,7 @@ const logout = asyncWrapper(async (req, res, next) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
-    domain: process.env.NODE_ENV === "production" ? ".vercel.app" : "localhost",
+    domain: process.env.COOKIE_DOMAIN,
     sameSite: "none",
   });
 
