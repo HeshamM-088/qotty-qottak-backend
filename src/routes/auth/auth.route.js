@@ -4,6 +4,7 @@ const passport = require("passport");
 const auth = require("../../controllers/google_auth/auth.controller");
 const me_cookies = require("../../controllers/google_auth/me_cookies.controller");
 const logout = require("../../controllers/google_auth/logout.controller");
+const session = require("../../controllers/google_auth/session.controller");
 
 router.get(
   "/google",
@@ -16,6 +17,8 @@ router.get(
 router.post("/logout", logout);
 
 router.get("/me", me_cookies);
+
+router.get("/auth/session", session);
 
 router.get(
   "/google/callback",

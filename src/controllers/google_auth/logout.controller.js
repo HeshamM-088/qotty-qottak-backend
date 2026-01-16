@@ -6,6 +6,7 @@ const logout = asyncWrapper(async (req, res, next) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: isProd,
+    domain: ".vercel.app",
     sameSite: isProd ? "none" : "lax",
   });
 
