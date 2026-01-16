@@ -4,6 +4,7 @@ const logout = asyncWrapper(async (req, res, next) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
+    path: "/",
     sameSite: "none",
   });
 

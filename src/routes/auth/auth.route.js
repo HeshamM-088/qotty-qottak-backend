@@ -20,7 +20,7 @@ router.post("/logout", logout);
 
 router.get("/me", me_cookies);
 
-router.get("/auth/session", authintication, authorization("admin"), session);
+router.get("/session", authintication, authorization("admin"), session);
 
 router.get(
   "/google/callback",
