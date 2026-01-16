@@ -31,7 +31,7 @@ const auth = asyncWrapper(async (req, res, next) => {
       httpOnly: true,
       secure: isProd,
       sameSite: isProd ? "none" : "lax",
-      domain: ".vercel.app",
+      // domain: ".vercel.app",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     })
     .redirect(`${process.env.CLIENT_URL}/auth/google/success`);
