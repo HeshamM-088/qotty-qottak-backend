@@ -5,6 +5,8 @@ const auth = require("../../controllers/google_auth/auth.controller");
 const me_cookies = require("../../controllers/google_auth/me_cookies.controller");
 const logout = require("../../controllers/google_auth/logout.controller");
 const session = require("../../controllers/google_auth/session.controller");
+const authorization = require("../../middlewares/authorization");
+const authintication = require("../../middlewares/authintication");
 
 router.get(
   "/google",
@@ -18,7 +20,7 @@ router.post("/logout", logout);
 
 router.get("/me", me_cookies);
 
-router.get("/auth/session", session);
+router.get("/auth/session", authintication, authorization("admin"), session);
 
 router.get(
   "/google/callback",

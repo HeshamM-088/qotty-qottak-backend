@@ -1,25 +1,12 @@
 const asyncWrapper = require("../../utils/asyncWrapper");
-const jwt = require("jsonwebtoken");
 
 const session = asyncWrapper(async (req, res, next) => {
-  const cook = await req.headers.cookie;
-
-  const token = cook.split("=")[1];
-
-  if (!token) {
-    return res.status(401).json({
-      status_code: 401,
-      message: "Un Authorized",
-      data: null,
-    });
-  }
-
-  const user = jwt.verify(token, process.env.SECRET_KEY);
+  const user = req.user;
 
   if (!user) {
     return res.status(401).json({
       status_code: 401,
-      message: "Invalid Token",
+      message: "admin access un authorized",
       data: null,
     });
   }
